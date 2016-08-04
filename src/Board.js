@@ -89,6 +89,8 @@
       return (counter > 1); 
     },
 
+//Time Complexity: linear
+
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
       var matrix = this.attributes;
@@ -100,7 +102,7 @@
       return false;
     },
 
-
+//Time Complexity: linear
 
     // COLUMNS - run from top to bottom
     // --------------------------------------------------------------
@@ -117,6 +119,8 @@
       return (counter > 1); 
     },
 
+    //Time Complexity: linear
+
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
       var matrix = this.attributes;
@@ -128,7 +132,7 @@
       return false; 
     },
 
-
+    //Time Complexity: linear
 
     // Major Diagonals - go from top-left to bottom-right
     // --------------------------------------------------------------
@@ -149,6 +153,8 @@
       return (counter > 1);
     },
 
+    //Time Complexity: linear
+
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
       var matrix = this.attributes;
@@ -161,7 +167,7 @@
       return false;
     },
 
-
+    //Time Complexity: linear
 
     // Minor Diagonals - go from top-right to bottom-left
     // --------------------------------------------------------------
@@ -182,6 +188,8 @@
       return (counter > 1);
     },
 
+    //Time Complexity: linear
+
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
       var matrix = this.attributes;
@@ -194,6 +202,8 @@
       return false;
     }
 
+    //Time Complexity: linear
+    
     /*--------------------  End of Helper Functions  ---------------------*/
 
 
