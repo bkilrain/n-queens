@@ -80,13 +80,17 @@
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
       var matrix = this.attributes[rowIndex];
-      var counter = 0;
+      var flag = false;
       for (var i = 0; i < matrix.length; i++) {
         if (matrix[i] > 0) {
-          counter++;
+          if (!flag) {
+            flag = true;
+          } else {
+            return true;
+          }
         }
       }
-      return (counter > 1); 
+      return false; 
     },
 
 //Time Complexity: linear
@@ -110,13 +114,17 @@
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
       var matrix = this.attributes;
-      var counter = 0;
+      var flag = false;
       for (var i = 0; i < matrix.n; i++) {
         if (matrix[i][colIndex] > 0) {
-          counter++;
+          if (!flag) {
+            flag = true;
+          } else {
+            return true;
+          }
         }
       }
-      return (counter > 1); 
+      return false; 
     },
 
     //Time Complexity: linear
@@ -138,19 +146,24 @@
     // --------------------------------------------------------------
     //
     // test if a specific major diagonal on this board contains a conflict
+    
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
       var offset = majorDiagonalColumnIndexAtFirstRow;
       var matrix = this.attributes;
-      var counter = 0;
+      var flag = false;
       var colIndex = Math.max(offset, 0);
       var iStart = Math.abs(Math.min(offset, 0));
       for (var i = iStart; i < matrix.n; i++) {
         if (matrix[i][colIndex] > 0) {
-          counter++;
+          if (!flag) {
+            flag = true;
+          } else {
+            return true;
+          }
         }
         colIndex++;
       }
-      return (counter > 1);
+      return false;
     },
 
     //Time Complexity: linear
@@ -176,16 +189,20 @@
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
       var offset = minorDiagonalColumnIndexAtFirstRow;
       var matrix = this.attributes;
-      var counter = 0;
+      var flag = false;
       var colIndex = Math.min(offset, matrix.n - 1);
       var iStart = Math.max(0, offset - matrix.n + 1);
       for (var i = iStart; i < matrix.n; i++) {
         if (matrix[i][colIndex] > 0) {
-          counter++;
+          if (!flag) {
+            flag = true;
+          } else {
+            return true;
+          }
         }
         colIndex--;
       }
-      return (counter > 1);
+      return false;
     },
 
     //Time Complexity: linear
@@ -205,7 +222,6 @@
     //Time Complexity: linear
     
     /*--------------------  End of Helper Functions  ---------------------*/
-
 
   });
 
