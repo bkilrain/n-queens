@@ -81,10 +81,8 @@ window.findNQueensSolution = function(n) {
     } else {
       for (var i = 0; i < currentOptions.length; i++) {
         var checkOption = currentOptions.splice(i, 1);
-        currentResults.push(checkOption[0]);
-        recurse(currentOptions, currentResults);
+        recurse(currentOptions, currentResults.concat(checkOption));
         currentOptions.splice(i, 0, checkOption[0]);
-        currentResults.pop();
       }
     }
   };
@@ -130,10 +128,8 @@ window.countNQueensSolutions = function(n) {
     } else {
       for (var i = 0; i < currentOptions.length; i++) {
         var checkOption = currentOptions.splice(i, 1);
-        currentResults.push(checkOption[0]);
-        recurse(currentOptions, currentResults);
+        recurse(currentOptions, currentResults.concat(checkOption));
         currentOptions.splice(i, 0, checkOption[0]);
-        currentResults.pop();
       }
     }
   };
